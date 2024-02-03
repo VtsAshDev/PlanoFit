@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="min-h-screen flex items-center p-10 bg-zinc-900" >
+      <div class="container mx-auto">
+        <div class="flex flex-col lg:flex-row w-8/12 bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden">
+          <div class=" py-5 lg:w-1/2 object-fill wful flex flex-col items-center bg-no-repeat" style="">
+            <h1 class="text-zinc-900 text-5xl mb-5 mt-5 flex ">PlanoFit<img src="src/imgs/PlanoFit Logo.png" class="px-2"></h1>
+            <img src="src/imgs/planofit.svg" alt="" class="hidden lg:flex">
+            
+          </div>
+          
+          <div class=" w-full lg:w-1/2 py-10 px-12">
+            <h1 class="text-3xl mb-4">Informe os dados</h1>
+            <p class="mb-4">Informe seus dados para criarmos seu plano personalizado</p>
+            <form action="">
+              <div class="grid grid-cols-2 gap-5">
+                <input type="text" placeholder="Seu Nome" class="border border-gray-400 py-1 px-2 rounded-lg" >
+                <input type="number" placeholder="Idade" class="border border-gray-400 py-1 px-2 rounded-lg">
+              </div>
+              <div class="mt-5">
+                
+                <input type="number" placeholder="Altura" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
+              </div>
+              <div class="mt-5">
+                <input type="number" placeholder="Kg's" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
+              </div>
+              <div class="mt-5">
+                <input type="checkbox" class="border border-gray-400 ">
+                <span>Eu li e aceito os <a class="text-purple-500" href="#">Termos de Uso  </a> & <a href="#" class="text-purple-500">Privacidade</a></span>
+              </div>
+              <div class="mt-5">
+                <button class="w-full bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-5 text-center text-2xl border-solid rounded-lg  " >Criar Seu Plano</button>
+            </form>
+          </div>
+      </div>
+     </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
