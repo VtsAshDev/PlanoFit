@@ -11,39 +11,67 @@
   <body>
     <div class="min-h-screen flex items-center p-10 bg-zinc-900" >
       <div class="container mx-auto">
-        <div class="flex flex-col lg:flex-row w-8/12 bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden">
-          <div class=" py-5 lg:w-1/2 object-fill wful flex flex-col items-center bg-no-repeat" style="">
-            <h1 class="text-zinc-900 text-5xl mb-5 mt-5 flex ">PlanoFit<img src="src/imgs/PlanoFit Logo.png" class="px-2"></h1>
+        <div class="p-5 flex flex-col lg:flex-row w-8/12 bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden">
+          <div class=" py-5  lg:w-1/2 object-fill wful flex flex-col items-center justify-center bg-no-repeat" >
+            <h1 class="text-zinc-900 text-6xl mb-5 mt-5 flex ">PlanoFit<img src="src/imgs/PlanoFit Logo.png" class="px-5"></h1>
             <img src="src/imgs/planofit.svg" alt="" class="hidden lg:flex">
             
           </div>
           
-          <div class=" w-full lg:w-1/2 py-10 px-12">
+          <div class=" w-full  lg:w-1/2 py-10 px-12">
             <h1 class="text-3xl mb-4">Informe os dados</h1>
             <p class="mb-4">Informe seus dados para criarmos seu plano personalizado</p>
-            <form action="">
-              <div class="grid grid-cols-2 gap-5">
-                <input type="text" placeholder="Seu Nome" class="border border-gray-400 py-1 px-2 rounded-lg" >
-                <input type="number" placeholder="Idade" class="border border-gray-400 py-1 px-2 rounded-lg">
+            <div id="status">
+              <div id="historic">
+
+              </div>
+            </div>
+            <form action="" id="form">
+             
+              
+              <div class="flex flex-col w-full">
+                <label for="nome">Sua idade</label>
+                <input type="number" placeholder="00" name="idade" class="border border-gray-400 py-1 px-2 rounded-lg" required>
               </div>
               <div class="mt-5">
+                <label for="">Sua Altura em Cm</label> 
+                <input type="number" placeholder="170" name="altura" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
+              </div>
+              <div class="mt-5">
+                <label for="">Seu Peso Atual</label>
+                <input type="number" placeholder="Kg's" name="kg" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
+              </div>
+              <div class="mt-5">
+                <label for="select-form">Seu Objetivo</label>
+                <select  name="objetivo" id="select-form" class="border  border-gray-400 py-2 px-2 w-full rounded-lg">
+                  <option selected disabled class="" value="">Selecione</option>
+                  <option value="emagrecimento">Emagrecimento</option>
+                  <option value="saude">Saúde</option>
+                  <option value="ganho de massa muscular">Ganho de Massa Muscular</option>
+                </select>
+                <div class="mt-5">
+                  <label for="select-form">Seu sexo</label>
+                  <select  name="sexo" id="select-form-sexo" class="border  border-gray-400 py-2 px-2 w-full rounded-lg">
+                    <option selected disabled class="" value="">Selecione</option>
+                    <option value="homem">Homem</option>
+                    <option value="mulher">Mulher</option>
+                  </select>
+              </div>
+                </div> 
                 
-                <input type="number" placeholder="Altura" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
-              </div>
               <div class="mt-5">
-                <input type="number" placeholder="Kg's" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
-              </div>
-              <div class="mt-5">
-                <input type="checkbox" class="border border-gray-400 ">
+                <input value="" type="checkbox" name="termo" class="border border-gray-400 ">
                 <span>Eu li e aceito os <a class="text-purple-500" href="#">Termos de Uso  </a> & <a href="#" class="text-purple-500">Privacidade</a></span>
               </div>
               <div class="mt-5">
-                <button class="w-full bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-5 text-center text-2xl border-solid rounded-lg  " >Criar Seu Plano</button>
-            </form>
+                <button type="submit" id="send" class="w-full bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-5 text-center text-2xl border-solid rounded-lg " >Criar Seu Plano</button>
+              </div>
+              </form>
           </div>
       </div>
      </div>
     </div>
+    <script type="module" src="src/js/apis.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>
