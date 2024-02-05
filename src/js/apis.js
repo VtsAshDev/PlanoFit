@@ -1,5 +1,6 @@
 //chat e form
 const apiKey = "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";
+const apiKey = "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";
 const submit = document.querySelector("#send");
 
 var userData = [];
