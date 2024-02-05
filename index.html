@@ -1,76 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
   <body>
-    <div class="min-h-screen flex items-center p-10 bg-zinc-900" >
+    <div class="min-h-screen flex items-center p-6 bg-zinc-900">
       <div class="container mx-auto">
-        <div class="p-5 flex flex-col lg:flex-row w-8/12 bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden">
-          <div class=" py-5  lg:w-1/2 object-fill wful flex flex-col items-center justify-center bg-no-repeat" >
-            <h1 class="text-zinc-900 text-6xl mb-5 mt-5 flex ">PlanoFit<img src="src/imgs/PlanoFit Logo.png" class="px-5"></h1>
-            <img src="src/imgs/planofit.svg" alt="" class="hidden lg:flex">
-            
+        <div
+          class="p-5 flex flex-col lg:flex-row w-8/12 bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden"
+        >
+          <div
+            class="py-5 lg:w-1/2 object-fill wful flex flex-col items-center justify-center bg-no-repeat"
+          >
+            <h1 class="text-zinc-900 text-6xl mb-5 mt-5 flex">
+              PlanoFit<img src="src/imgs/PlanoFit Logo.png" class="px-5" />
+            </h1>
+            <img src="src/imgs/planofit.svg" alt="" class="hidden lg:flex" />
           </div>
-          
-          <div class=" w-full  lg:w-1/2 py-10 px-12">
-            <h1 class="text-3xl mb-4">Informe os dados</h1>
-            <p class="mb-4">Informe seus dados para criarmos seu plano personalizado</p>
-            <div id="status">
-              <div id="historic">
 
-              </div>
-            </div>
+          <div class="w-full lg:w-1/2 py-10 px-12">
+            <h1 class="text-3xl mb-4">Informe os dados</h1>
+            <p class="mb-4">
+              Informe seus dados para criarmos seu plano personalizado
+            </p>
+            <div id="status"></div>
+            <div id="historic"></div>
             <form action="" id="form">
-             
-              
               <div class="flex flex-col w-full">
                 <label for="nome">Sua idade</label>
-                <input type="number" placeholder="00" name="idade" class="border border-gray-400 py-1 px-2 rounded-lg" required>
+                <input
+                  type="number"
+                  placeholder="00"
+                  name="idade"
+                  class="border border-gray-400 py-1 px-2 rounded-lg"
+                  required
+                />
               </div>
               <div class="mt-5">
-                <label for="">Sua Altura em Cm</label> 
-                <input type="number" placeholder="170" name="altura" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
+                <label for="">Sua Altura em Cm</label>
+                <input
+                  type="number"
+                  placeholder="170"
+                  name="altura"
+                  class="border border-gray-400 py-1 px-2 w-full rounded-lg"
+                />
               </div>
               <div class="mt-5">
                 <label for="">Seu Peso Atual</label>
-                <input type="number" placeholder="Kg's" name="kg" class="border border-gray-400 py-1 px-2 w-full rounded-lg">
+                <input
+                  type="number"
+                  placeholder="Kg's"
+                  name="kg"
+                  class="border border-gray-400 py-1 px-2 w-full rounded-lg"
+                />
               </div>
+
               <div class="mt-5">
                 <label for="select-form">Seu Objetivo</label>
-                <select  name="objetivo" id="select-form" class="border  border-gray-400 py-2 px-2 w-full rounded-lg">
+                <select
+                  name="objetivo"
+                  id="select-form"
+                  class="border border-gray-400 py-2 px-2 w-full rounded-lg"
+                >
                   <option selected disabled class="" value="">Selecione</option>
                   <option value="emagrecimento">Emagrecimento</option>
                   <option value="saude">Saúde</option>
-                  <option value="ganho de massa muscular">Ganho de Massa Muscular</option>
+                  <option value="muscular">Ganho de Massa Muscular</option>
                 </select>
                 <div class="mt-5">
                   <label for="select-form">Seu sexo</label>
-                  <select  name="sexo" id="select-form-sexo" class="border  border-gray-400 py-2 px-2 w-full rounded-lg">
-                    <option selected disabled class="" value="">Selecione</option>
+                  <select
+                    name="sexo"
+                    id="select-form-sexo"
+                    class="border border-gray-400 py-2 px-2 w-full rounded-lg"
+                  >
+                    <option selected disabled class="" value="">
+                      Selecione
+                    </option>
                     <option value="homem">Homem</option>
                     <option value="mulher">Mulher</option>
                   </select>
-              </div>
-                </div> 
-                
-              <div class="mt-5">
-                <input value="" type="checkbox" name="termo" class="border border-gray-400 ">
-                <span>Eu li e aceito os <a class="text-purple-500" href="#">Termos de Uso  </a> & <a href="#" class="text-purple-500">Privacidade</a></span>
+                </div>
               </div>
               <div class="mt-5">
-                <button type="submit" id="send" class="w-full bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-5 text-center text-2xl border-solid rounded-lg " >Criar Seu Plano</button>
+                <label for="">Whatsapp</label>
+                <input
+                  id="wpp"
+                  type="number"
+                  placeholder="(00)00000-0000"
+                  name="wpp"
+                  class="border border-gray-400 py-1 px-2 w-full rounded-lg"
+                />
               </div>
-              </form>
+              <div class="mt-5">
+                <input
+                  value=""
+                  type="checkbox"
+                  name="termo"
+                  class="border border-gray-400"
+                />
+                <span
+                  >Eu li e aceito os
+                  <a class="text-purple-500" href="#">Termos de Uso </a> &
+                  <a href="#" class="text-purple-500">Privacidade</a></span
+                >
+              </div>
+              <div class="mt-5">
+                <button
+                  type="submit"
+                  id="send"
+                  class="w-full bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-5 text-center text-2xl border-solid rounded-lg"
+                >
+                  Criar Seu Plano
+                </button>
+                <!-- <button
+                 
+                  id="teste"
+                  class="w-full bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-5 text-center text-2xl border-solid rounded-lg"
+                >
+                  teste
+                </button> -->
+              </div>
+            </form>
           </div>
+        </div>
       </div>
-     </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="src/js/apis.js"></script>
     <script type="module" src="main.js"></script>
   </body>
