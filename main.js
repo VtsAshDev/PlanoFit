@@ -113,7 +113,7 @@ function sendMessage(plano) {
       Swal.fire({
         title: "E-mail Enviado Com sucesso!",
         text: "Caso não encontre verifique sua Caixa de Spam\nBoa Sorte em Sua Jornada !",
-        imageUrl: "./src/imgs/mailalert.svg",
+        imageUrl: "./src/imgs/planofit.svg",
         imageWidth: 300,
         imageHeight: 100,
         imageAlt: "Custom image",
