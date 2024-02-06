@@ -1,6 +1,7 @@
+import Swal from 'sweetalert2'
+
 import { apiKey,emailjsapi } from "./src/js/apis";
 
-import Swal from 'sweetalert2'
 
 
 const submit = document.querySelector("#send");
@@ -10,6 +11,8 @@ var chatReturn = "";
 
 submit.addEventListener("click", (event) => {
   event.preventDefault();
+ 
+  
   getForm();
 });
 
@@ -111,8 +114,8 @@ function sendMessage(plano) {
         title: "E-mail Enviado Com sucesso!",
         text: "Caso não encontre verifique sua Caixa de Spam\nBoa Sorte em Sua Jornada !",
         imageUrl: "./src/imgs/mailalert.svg",
-        imageWidth: 400,
-        imageHeight: 200,
+        imageWidth: 300,
+        imageHeight: 100,
         imageAlt: "Custom image",
         confirmButtonColor: "#fbba00",
       });
