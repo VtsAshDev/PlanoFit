@@ -15,24 +15,25 @@
     <div class="min-h-screen flex items-center p-6 bg-zinc-900">
       <div class="container mx-auto">
         <div
-          class="p-5 flex flex-col lg:flex-row w-8/12 bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden"
+          class="p-5 flex flex-col lg:flex-row w-full bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden"
         >
           <div
-            class="py-5 lg:w-1/2 object-fill wful flex flex-col items-center justify-center bg-no-repeat"
+            class="py-5 lg:w-1/2 object-fill w-full flex flex-col items-center justify-center bg-no-repeat"
           >
-            <h1 class="text-zinc-900 text-6xl mb-5 mt-5 flex">
+            <h1 class="text-zinc-900 text-5xl mb-5 mt-5 flex lg:text-3xl ">
               PlanoFit<img src="src/imgs/PlanoFit Logo.png" class="px-5" />
             </h1>
             <img src="src/imgs/planofit.svg" alt="" class="hidden lg:flex" />
           </div>
 
           <div class="w-full lg:w-1/2 py-10 px-12">
-            <h1 class="text-3xl mb-4">Informe os dados</h1>
-            <p class="mb-4">
+            <h1 class="text-3xl mb-4 text-center">Informe seus dados</h1>
+            <p class="mb-4 text-center">
               Informe seus dados para criarmos seu plano personalizado
+              
             </p>
             <form action="" id="form" class="">
-              <div class="mt-5 flex gap-2">
+              <div class="mt-5 flex gap-3">
                 <div class="mt-5 flex flex-col w-1/2">
                   <label for="nome">Idade</label>
                   <input
@@ -44,7 +45,7 @@
                   />
                 </div>
                 <div class="mt-5 flex flex-col w-1/2">
-                  <label for="">Altura em Cm</label>
+                  <label for="">Altura</label>
                   <input
                     type="number"
                     placeholder="170"
@@ -56,7 +57,7 @@
 
               <div class="mt-5 flex w-full gap-2">
                 <div class=" flex flex-col w-1/2">
-                  <label for="">Peso Atual</label>
+                  <label for="">Peso</label>
                   <input
                     type="number"
                     placeholder="Kg's"
@@ -65,7 +66,7 @@
                     required/>
                 </div>
                 <div class=" flex flex-col w-1/2">
-                  <label for="select-form">Seu Objetivo</label>
+                  <label for="select-form">Objetivo</label>
                   <select
                     name="objetivo"
                     id="select-form"
