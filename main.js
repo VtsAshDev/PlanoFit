@@ -106,7 +106,7 @@ function sendMessage(plano) {
 
       Swal.fire({
         title: "E-mail Enviado Com sucesso!",
-        text: "Caso não encontre verifique sua Caixa de Spam\nBoa Sorte !",
+        text: "Caso não encontre verifique sua Caixa de Spam\nBoa Sorte em Sua Jornada !",
         imageUrl: "./src/imgs/mail.svg",
         imageWidth: 400,
         imageHeight: 200,
@@ -145,7 +145,7 @@ function sendMail(formattedResponse) {
   emailjs
     .send(serviceID, templateID, params)
     .then((res) => {
-      alert("Email Sent");
+      
     })
     .catch((res) => {
       alert("Email incorretou ou algum erro ");
