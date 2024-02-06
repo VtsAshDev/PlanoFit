@@ -1,5 +1,8 @@
 import { apiKey,emailjsapi } from "./src/js/apis";
 
+import Swal from 'sweetalert2'
+
+
 const submit = document.querySelector("#send");
 
 var userData = [];
@@ -107,7 +110,7 @@ function sendMessage(plano) {
       Swal.fire({
         title: "E-mail Enviado Com sucesso!",
         text: "Caso não encontre verifique sua Caixa de Spam\nBoa Sorte em Sua Jornada !",
-        imageUrl: "/src/imgs/mailalert.svg",
+        imageUrl: "./src/imgs/mailalert.svg",
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: "Custom image",
