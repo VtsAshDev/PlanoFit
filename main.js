@@ -1,79 +1,33 @@
 import Swal from 'sweetalert2'
+import { apiKey,emailjsapi } from "./src/js/apis.js";
+import {getForm} from './src/js/getForm.js'
+import { getTmb } from './src/js/getTmb.js';
+import {planoGpt} from './src/js/planoGpt.js'
 
-import { apiKey,emailjsapi } from "./src/js/apis";
+const form = document.querySelector("#form");
 
-
-
-const submit = document.querySelector("#send");
-
-var userData = [];
 var chatReturn = "";
 
-submit.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
- 
+  const formData = getForm();
+  const { sexo, idade, altura, kg, objetivo } = formData;
   
-  getForm();
+  const tmbData = getTmb(sexo,idade,altura,kg, objetivo);
+  const { tmb } = tmbData;
+
+  const planoData = planoGpt(objetivo,sexo,tmb)
+  const {plano} = planoData
+
+  sendMessage(plano)
 });
 
 // Pegando os dados do usuário
-function getForm() {
-  const dados = document.querySelector("#form");
-  var inputs = dados.getElementsByTagName("input");
-  let sex = document.querySelector("#select-form-sexo");
-  let objective = document.querySelector("#select-form");
 
-  for (var i = 0; i < inputs.length; i++) {
-    var allinput = inputs[i];
-    userData.push({ nome: allinput.name, value: allinput.value });
-  }
-  userData.push({ nome: sex.name, value: sex.value });
-  userData.push({ nome: objective.name, value: objective.value });
 
-  let sexo, idade, altura, kg, objetivo;
 
-  userData.forEach((user) => {
-    if (user.nome === "sexo") {
-      sexo = user.value;
-    }
-    if (user.nome === "idade") {
-      idade = parseInt(user.value);
-    }
-    if (user.nome === "altura") {
-      altura = parseInt(user.value);
-    }
-    if (user.nome === "kg") {
-      kg = parseInt(user.value);
-    }
-    if (user.nome === "objetivo") {
-      objetivo = user.value;
-    }
-  });
 
-  return getTmb(sexo, idade, altura, kg, objetivo);
-}
 
-function getTmb(sexo, idade, altura, kg, objetivo) {
-  const tmb = Math.round(
-    sexo === "mulher"
-      ? 655 + 9.6 * kg + 1.8 * altura - 4.7 * idade
-      : 66 + 13.7 * kg + 5 * altura - 6.8 * idade
-  );
-
-  return planoGpt(objetivo, sexo, tmb);
-}
-
-function planoGpt(objetivo, sexo, tmb) {
-  let plano;
-  if (objetivo === "emagrecimento") {
-    plano = `Plano alimentar para emagrecimento informando as calorias das refeicoes para ${sexo} de acordo com tmb ${tmb}kcal e junto a isso um treino de musculação`;
-  } else if (objetivo === "saude") {
-    plano = `Plano alimentar saudável informando as calorias das refeicoes para ${sexo} de acordo com tmb ${tmb}kcal e junto a isso um treino de musculação`;
-  } else if (objetivo === "muscular") {
-    plano = `Plano alimentar para ganho de massa muscular informando as calorias das refeicoes para ${sexo} de acordo com tmb ${tmb}kcal e junto a isso um treino de musculação`;
-  }
-  return sendMessage(plano);
-}
 
 function sendMessage(plano) {
   var btnSubmit = document.getElementById("send");
@@ -103,11 +57,10 @@ function sendMessage(plano) {
       chatResponseContent(chatReturn);
     })
     .catch((error) => {
-      // console.log(error, "Deu erro Verifique ");
+      console.log(error, "Deu erro Verifique ");
     })
     .finally(() => {
       svgBtn.classList.add("hidden");
-      btnSubmit.innerHTML = "Criar Seu Plano";
       btnSubmit.style.cursor = "pointer";
 
       Swal.fire({
@@ -148,7 +101,7 @@ function sendMail(formattedResponse) {
   emailjs
     .send(serviceID, templateID, params)
     .then((res) => {
-      
+      return
     })
     .catch((res) => {
       alert("Email incorretou ou algum erro ");
