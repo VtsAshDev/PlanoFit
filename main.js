@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
 import {getForm} from './src/js/getForm.js'
 import { getTmb } from './src/js/getTmb.js';
-import { getPrompt } from './src/js/getPrompt.js';
+import { sendPrompt } from './src/js/sendPrompt.js';
 
 
 const Toast = Swal.mixin({
@@ -29,10 +29,11 @@ form.addEventListener("submit", (event) => {
   
   const tmb= getTmb(formData.sexo, formData.idade, formData.altura, formData.kg);
 
-  const Prompt = getPrompt(formData.objetivo,formData.sexo,tmb);
+  const Prompt = sendPrompt(formData.objetivo,formData.sexo,tmb)
+  .then((resposta) => console.log(resposta))
+    .catch((erro) => console.error("Erro:",erro));
+  
 
-  console.log(Prompt);
-
-
+console.log(Prompt);
 });
 
