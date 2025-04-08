@@ -24,16 +24,14 @@ var chatReturn = "";
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
   const formData = getForm();
-  const { sexo, idade, altura, kg, objetivo } = formData;
   
-  const tmbData = getTmb(sexo,idade,altura,kg, objetivo);
-  const { tmb } = tmbData;
+  const tmb= getTmb(formData.sexo, formData.idade, formData.altura, formData.kg);
 
-  const planoData = planoGpt(objetivo,sexo,tmb)
-  const {plano} = planoData
+  const planoPrompt = planoGpt(formData.objetivo,formData.sexo,tmb);
 
-  sendMessage(plano)
+  sendMessage(planoPrompt)
 });
 
 

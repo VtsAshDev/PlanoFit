@@ -3,14 +3,11 @@ export function getForm() {
 
   const userData = Object.fromEntries(formData.entries());
 
-  const sexo = userData.sexo;
-  const idade = parseInt(userData.idade);
-  const altura = parseInt(userData.altura);
-  const kg = parseInt(userData.kg);
-  const objetivo = userData.objetivo;
+  let sexo = userData.sexo;
+  let idade = parseInt(userData.idade);
+  let altura = parseInt(userData.altura);
+  let kg = parseInt(userData.kg);
+  let objetivo = userData.objetivo;
 
-return sexo, idade, altura, kg, objetivo ;
+  return { sexo, idade, altura, kg, objetivo };
 }
-
-
-
