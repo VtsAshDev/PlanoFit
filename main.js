@@ -4,6 +4,20 @@ import {getForm} from './src/js/getForm.js'
 import { getTmb } from './src/js/getTmb.js';
 import {planoGpt} from './src/js/planoGpt.js'
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  background: '#FFC107',
+  color: '#212121',
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
 const form = document.querySelector("#form");
 
 var chatReturn = "";
@@ -21,11 +35,6 @@ form.addEventListener("submit", (event) => {
 
   sendMessage(plano)
 });
-
-// Pegando os dados do usuário
-
-
-
 
 
 
@@ -52,22 +61,65 @@ function sendMessage(plano) {
   })
     .then((response) => response.json())
     .then((response) => {
-      
       chatReturn = response.choices[0].text;
       chatResponseContent(chatReturn);
     })
     .catch((error) => {
       console.log(error, "Deu erro Verifique ");
+      Swal.fire({
+        title: 'Ops!',
+        text: 'Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente.',
+        icon: 'error',
+        background: '#212121',
+        color: '#FFC107',
+        confirmButtonColor: '#FFC107',
+        confirmButtonText: 'Tentar Novamente',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      });
     })
     .finally(() => {
       svgBtn.classList.add("hidden");
       btnSubmit.style.cursor = "pointer";
 
       Swal.fire({
-        title: "E-mail Enviado Com sucesso!",
-        text: "Caso não encontre verifique sua Caixa de Spam\nBoa Sorte em Sua Jornada !",
-        icon: "success",
-        confirmButtonColor: "#fbba00",
+        title: 'Plano Enviado! 🎉',
+        html: `
+          <div class="space-y-4">
+            <p class="text-lg">Seu plano personalizado foi enviado para seu e-mail!</p>
+            <div class="bg-nutri-yellow/10 p-4 rounded-lg">
+              <p class="text-sm">Caso não encontre, verifique sua caixa de spam.</p>
+              <p class="text-sm mt-2">Boa sorte em sua jornada! 💪</p>
+            </div>
+          </div>
+        `,
+        icon: 'success',
+        background: '#212121',
+        color: '#FFC107',
+        confirmButtonColor: '#FFC107',
+        confirmButtonText: 'Começar Agora!',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        customClass: {
+          container: 'backdrop-blur-sm',
+          popup: 'border border-nutri-yellow/20 shadow-nutri',
+          title: 'text-2xl font-bold',
+          htmlContainer: 'text-center',
+          confirmButton: 'font-semibold hover:bg-nutri-yellow-dark transition-colors duration-300'
+        }
+      });
+
+      Toast.fire({
+        icon: 'success',
+        title: 'E-mail enviado com sucesso!'
       });
     });
 }
@@ -103,53 +155,21 @@ function sendMail(formattedResponse) {
     .then((res) => {
       return
     })
-    .catch((res) => {
-      alert("Email incorretou ou algum erro ");
+    .catch(() => {
+      Swal.fire({
+        title: 'Erro no E-mail',
+        text: 'O endereço de e-mail parece estar incorreto ou ocorreu um erro no envio. Por favor, verifique e tente novamente.',
+        icon: 'error',
+        background: '#212121',
+        color: '#FFC107',
+        confirmButtonColor: '#FFC107',
+        confirmButtonText: 'Tentar Novamente',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      });
     });
 }
-
-// function handleGetFormValues(formattedResponse) {
-//   const whatsapp = document.getElementById("wpp").value;
-
-//   const message = formattedResponse;
-
-//   if (typeof whatsapp !== "string" || whatsapp === "") {
-//     return alert("Digite um número de Whatsapp válido");
-//   }
-//   if (typeof message !== "string" || message === "") {
-//     return alert("Digite uma mensagem");
-//   }
-
-//   return handleSubmitWhatsappMessage(whatsapp, message);
-// }
-
-// async function handleSubmitWhatsappMessage(whatsapp, message) {
-//   const GZAPPY_URL = "https://api.gzappy.com/v1/message/send-message";
-
-//   const response = await fetch(GZAPPY_URL, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       user_token_id: "648b6267-dfaf-4c82-9131-bc17444f34ed",
-//     },
-//     body: JSON.stringify({
-//       instance_id: "EJIUWMULK81JFQ0C7QAL9W5D",
-//       instance_token: "3f29d85e-bb36-4073-8b2a-3a3333b47c5e",
-//       message: [message],
-//       phone: whatsapp,
-//     }),
-//   });
-
-//   const data = await response.json();
-
-//   console.log(data);
-// }
-
-// async function handleSubmitForm() {
-//   const data = handleGetFormValues();
-//   console.log(data);
-//   if (data) {
-//     await handleSubmitWhatsappMessage(data.whatsapp, data.message);
-//     console.log(data.whatsapp);
-//   }
-// }

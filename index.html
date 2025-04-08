@@ -5,161 +5,229 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
     />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PlanoFit</title>
+    <title>PlanoFit - Seu Plano de Nutrição Personalizado</title>
   </head>
-  <body>
-    <div class="min-h-screen flex items-center p-6 bg-zinc-900">
+  <body class="min-h-screen bg-gradient-to-br from-nutri-black via-gray-900 to-nutri-black">
+    <div class="min-h-screen flex items-center p-4 md:p-6">
       <div class="container mx-auto">
         <div
-          class="p-5 flex flex-col lg:flex-row w-full bg-neutral-100 rounded-xl mx-auto shadow-lg overflow-hidden"
+          class="p-5 md:p-8 flex flex-col lg:flex-row w-full bg-white/95 backdrop-blur-sm rounded-2xl mx-auto shadow-nutri overflow-hidden animate-fade-in"
         >
           <div
-            class="lg:py-5 lg:w-1/2 object-fill w-full flex flex-col items-center justify-center bg-no-repeat"
+            class="lg:py-5 lg:w-1/2 w-full flex flex-col items-center justify-center space-y-6"
           >
-            <h1 class="text-zinc-900 text-5xl lg:mb-5 lg:mt-5 flex lg:text-6xl ">
-              PlanoFit<img src="src/imgs/PlanoFit Logo.png" class="px-5" />
-            </h1>
-            <img src="src/imgs/planofit.svg" alt="" class="hidden lg:flex" />
+            <div class="text-center animate-slide-in">
+              <h1 class="text-nutri-black text-4xl md:text-5xl lg:text-6xl font-bold mb-4 hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                PlanoFit
+                <img src="src/imgs/PlanoFit Logo.png" class="px-5 h-16 md:h-20 lg:h-24 object-contain animate-float" alt="PlanoFit Logo" />
+              </h1>
+              <p class="text-nutri-gray text-lg md:text-xl animate-pulse-slow">Transforme sua saúde com um plano personalizado</p>
+            </div>
+            
+            <img src="src/imgs/planofit.svg" alt="Fitness Illustration" class="hidden lg:block w-4/5 animate-float" style="animation-delay: 0.2s" />
+
+            <div class="lg:hidden flex space-x-4">
+              <div class="bg-nutri-yellow/10 p-4 rounded-full animate-float" style="animation-delay: 0s">
+                <svg class="w-8 h-8 text-nutri-yellow hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+              </div>
+              <div class="bg-nutri-yellow/10 p-4 rounded-full animate-float" style="animation-delay: 0.2s">
+                <svg class="w-8 h-8 text-nutri-yellow hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <div class="bg-nutri-yellow/10 p-4 rounded-full animate-float" style="animation-delay: 0.4s">
+                <svg class="w-8 h-8 text-nutri-yellow hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+            </div>
           </div>
 
-          <div class="w-full lg:w-1/2 lg:py-10 lg:px-12">
-            <h1 class=" text-1xl lg:text-3xl lg:mb-4 ">Informe seus dados para criarmos seu plano de dieta e treino :
-            </h1>
-            <form action="" id="form" class="">
-              <div class=" lg:mt-5 flex gap-3">
-                <div class="mt-5 flex flex-col w-1/2">
-                  <label for="nome">Idade</label>
+          <div class="w-full lg:w-1/2 lg:py-10 lg:px-12 animate-slide-in" style="animation-delay: 0.2s">
+            <h2 class="text-2xl md:text-3xl font-semibold text-nutri-black mb-6 hover:text-nutri-yellow transition-colors duration-300">
+              Crie seu plano personalizado
+            </h2>
+            <form action="" method="get" id="form" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2 group">
+                  <label for="idade" class="block text-sm font-medium text-nutri-gray group-hover:text-nutri-yellow transition-colors duration-300">Idade</label>
                   <input
                     type="number"
                     placeholder="00"
                     name="idade"
-                    class="border border-gray-400 py-1 px-2 rounded-lg w-full"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nutri-yellow focus:border-transparent transition-all duration-300 hover:border-nutri-yellow"
                     required
                   />
                 </div>
-                <div class="mt-5 flex flex-col w-1/2">
-                  <label for="">Altura</label>
+                <div class="space-y-2 group">
+                  <label for="altura" class="block text-sm font-medium text-nutri-gray group-hover:text-nutri-yellow transition-colors duration-300">Altura (cm)</label>
                   <input
                     type="number"
                     placeholder="170"
                     name="altura"
-                    class="border border-gray-400 py-1 px-2 rounded-lg w-full"
-                    required/>
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nutri-yellow focus:border-transparent transition-all duration-300 hover:border-nutri-yellow"
+                    required
+                  />
                 </div>
               </div>
 
-              <div class="mt-5 flex w-full gap-2">
-                <div class=" flex flex-col w-1/2">
-                  <label for="">Peso</label>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2 group">
+                  <label for="kg" class="block text-sm font-medium text-nutri-gray group-hover:text-nutri-yellow transition-colors duration-300">Peso (kg)</label>
                   <input
                     type="number"
                     placeholder="Kg's"
                     name="kg"
-                    class="border border-gray-400 py-1 px-2 rounded-lg w-full"
-                    required/>
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nutri-yellow focus:border-transparent transition-all duration-300 hover:border-nutri-yellow"
+                    required
+                  />
                 </div>
-                <div class=" flex flex-col w-1/2">
-                  <label for="select-form">Objetivo</label>
-                  <select
-                    name="objetivo"
-                    id="select-form"
-                    class="border border-gray-400 py-2 px-2 rounded-lg w-full"
-                  >
-                    <option selected disabled class="" value="">
-                      Selecione
-                    </option>
-                    <option value="emagrecimento">Emagrecimento</option>
-                    <option value="saude">Saúde</option>
-                    <option value="muscular">Ganho de Massa Muscular</option>
-                  </select>
+                <div class="space-y-2 group">
+                  <label for="objetivo" class="block text-sm font-medium text-nutri-gray group-hover:text-nutri-yellow transition-colors duration-300">Objetivo</label>
+                  <div class="relative">
+                    <select
+                      name="objetivo"
+                      id="select-form"
+                      class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-nutri-yellow focus:border-transparent transition-all duration-300 hover:border-nutri-yellow appearance-none cursor-pointer"
+                    >
+                      <option selected disabled value="">Selecione seu objetivo</option>
+                      <option value="emagrecimento" class="bg-nutri-yellow/10">Emagrecimento</option>
+                      <option value="saude" class="bg-nutri-yellow/10">Saúde</option>
+                      <option value="muscular" class="bg-nutri-yellow/10">Ganho de Massa Muscular</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg class="w-5 h-5 text-nutri-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="mt-5 w-full" >
-                <label for="select-form">Seu sexo</label>
-                <select
-                  name="sexo"
-                  id="select-form-sexo"
-                  class="border border-gray-400 py-2 px-2 w-full rounded-lg"
-                >
-                  <option selected disabled class="" value="">Selecione</option>
-                  <option value="homem">Homem</option>
-                  <option value="mulher">Mulher</option>
-                </select>
               </div>
 
-              <div class="mt-5">
-                <label for="">E-mail</label>
+              <div class="space-y-2 group">
+                <label for="sexo" class="block text-sm font-medium text-nutri-gray group-hover:text-nutri-yellow transition-colors duration-300">Sexo</label>
+                <div class="relative">
+                  <select
+                    name="sexo"
+                    id="select-form-sexo"
+                    class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-nutri-yellow focus:border-transparent transition-all duration-300 hover:border-nutri-yellow appearance-none cursor-pointer"
+                  >
+                    <option selected disabled value="">Selecione seu sexo</option>
+                    <option value="homem" class="bg-nutri-yellow/10">Homem</option>
+                    <option value="mulher" class="bg-nutri-yellow/10">Mulher</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-nutri-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-2 group">
+                <label for="email" class="block text-sm font-medium text-nutri-gray group-hover:text-nutri-yellow transition-colors duration-300">E-mail</label>
                 <input
                   id="email"
-                  type="text"
+                  type="email"
                   placeholder="seu@email.com"
                   name="wpp"
-                  class="border border-gray-400 py-1 px-2 w-full rounded-lg"
-                  required/>
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nutri-yellow focus:border-transparent transition-all duration-300 hover:border-nutri-yellow"
+                  required
+                />
               </div>
-              <div class="mt-5">
+
+              <div class="flex items-center space-x-2 group">
                 <input
-                  value=""
                   type="checkbox"
                   name="termo"
-                  class="border border-gray-400"
-                  required/>
-                <span
-                  >Eu li e aceito os
-                  <a class="text-purple-500" href="#">Termos de Uso </a> &
-                  <a href="#" class="text-purple-500">Privacidade</a></span
-                >
+                  class="h-4 w-4 text-nutri-yellow focus:ring-nutri-yellow border-gray-300 rounded transition-colors duration-300 group-hover:border-nutri-yellow"
+                  required
+                />
+                <span class="text-sm text-nutri-gray group-hover:text-nutri-yellow transition-colors duration-300">
+                  Eu li e aceito os
+                  <a href="#" class="text-nutri-yellow hover:text-nutri-yellow-dark transition-colors duration-300">Termos de Uso</a> e
+                  <a href="#" class="text-nutri-yellow hover:text-nutri-yellow-dark transition-colors duration-300">Política de Privacidade</a>
+                </span>
               </div>
-              <div class="mt-5">
-                <!-- <button
-                  type="submit"
-                  id="send"
-                  class="w-full bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-5 text-center text-2xl border-solid rounded-lg"
-                >
-                  Criar Seu Plano
-                </button> -->
 
-                <button
-                  type="submit"
-                  id="send"
-                  class="w-full flex justify-center gap-4 text-black font-sans text-right bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 rounded-lg text-lg px-5 py-2.5 me-2 dark:bg-yellow-400 dark:bg-yellow-400 dark:focus:ring-yellow-400  items-center"
-                >
-                  Criar Seu Plano
+              <button
+                type="submit"
+                id="send"
+                class="group relative w-full bg-gradient-to-r from-nutri-yellow via-nutri-yellow-light to-nutri-yellow bg-[length:200%_auto] animate-shine hover:bg-[length:200%_auto] text-nutri-black font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-button animate-glow overflow-hidden"
+              >
+                <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div class="relative flex items-center justify-center space-x-3">
+                  <span class="text-lg">Criar Seu Plano</span>
+                  <svg
+                    class="w-6 h-6 transform group-hover:rotate-12 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
                   <svg
                     id="svgBtn"
-                    aria-hidden="true"
-                    role="status"
-                    class=" hidden w-9 h-10 text-black-200 animate-spin"
-                    viewBox="0 0 100 101"
+                    class="hidden w-6 h-6 animate-spin"
+                    viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
+                    <circle
+                      class="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    ></circle>
                     <path
-                      d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                      fill="#E5E7EB"
-                    />
-                    <path
-                      d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                      class="opacity-75"
                       fill="currentColor"
-                    />
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
-                </button>
                 </div>
-              </div>
+              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
+
+    <footer class="fixed bottom-0 w-full py-4 bg-nutri-black/80 backdrop-blur-sm">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-center items-center space-x-2">
+          <span class="text-gray-400 text-sm">Desenvolvido por</span>
+          <a 
+            href="https://github.com/seu-usuario" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-nutri-yellow hover:text-nutri-yellow-light transition-colors duration-300 flex items-center space-x-1"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+            </svg>
+            <span>seu-usuario</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
-    
     <script type="module" src="main.js"></script>
   </body>
 </html>
