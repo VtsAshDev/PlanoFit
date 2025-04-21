@@ -22,7 +22,6 @@ export async function sendPrompt(idade, altura,peso,objetivo, sexo, tmb) {
     }
 
     const resposta = await envio.json();
-    console.log("Resposta do servidor:", resposta);
     return resposta;
 
   } catch (erro) {

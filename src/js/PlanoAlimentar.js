@@ -35,9 +35,6 @@ export class PlanoAlimentar {
     const formattedContent = this.formatarPlano();
 
     doc.html(formattedContent, {
-      callback: function (doc) {
-        doc.save('plano-alimentar.pdf');
-      },
       margin: [10, 10, 10, 10],
       x: 10,
       y: 10, 
