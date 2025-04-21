@@ -1,12 +1,15 @@
-export async function sendPrompt(objetivo, sexo, tmb) {
+export async function sendPrompt(idade, altura,peso,objetivo, sexo, tmb) {
   const dados = {
-    objetivo,
-    sexo,
+    idade,
+    altura,
+    peso,
     tmb,
+    sexo,
+    objetivo,
   };
 
   try {
-    const envio = await fetch("https://sua-api.com/endpoint", {
+    const envio = await fetch("https://planofitapi.onrender.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,6 +22,7 @@ export async function sendPrompt(objetivo, sexo, tmb) {
     }
 
     const resposta = await envio.json();
+    console.log("Resposta do servidor:", resposta);
     return resposta;
 
   } catch (erro) {

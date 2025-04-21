@@ -1,8 +1,8 @@
 import Swal from 'sweetalert2'
-import {getForm} from './src/js/getForm.js'
-import { getTmb } from './src/js/getTmb.js';
-import { sendPrompt } from './src/js/sendPrompt.js';
-
+import { Form } from './src/js/Form.js'
+import { getTmb } from './src/js/getTmb.js'
+import { sendPrompt } from './src/js/sendPrompt.js'
+import { PlanoAlimentar } from './src/js/PlanoAlimentar.js'
 
 const Toast = Swal.mixin({
   toast: true,
@@ -18,22 +18,39 @@ const Toast = Swal.mixin({
   }
 })
 
-const form = document.querySelector("#form");
+const form = new Form();
 
-var chatReturn = "";
-
-form.addEventListener("submit", (event) => {
+document.querySelector("#form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const formData = getForm();
-  
-  const tmb= getTmb(formData.sexo, formData.idade, formData.altura, formData.kg);
+  const dados = form.getAll();
+  const tmb = getTmb(dados.sexo, dados.idade, dados.altura, dados.peso);
 
-  const Prompt = sendPrompt(formData.objetivo,formData.sexo,tmb)
-  .then((resposta) => console.log(resposta))
-    .catch((erro) => console.error("Erro:",erro));
-  
+  try {
+    const response = await sendPrompt(
+      dados.idade,
+      dados.altura,
+      dados.peso,
+      dados.objetivo,
+      dados.sexo,
+      tmb
+    );
 
-console.log(Prompt);
+    const plano = new PlanoAlimentar(response.resposta);
+    plano.gerarPDF();
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Plano Criado com sucesso!'
+    });
+
+  } catch (error) {
+    console.error("Erro ao enviar dados:", error);
+
+    Toast.fire({
+      icon: 'error',
+      title: 'Erro ao enviar dados!'
+    });
+  }
 });
 
