@@ -30,3 +30,5 @@ export async function sendPrompt(idade, altura,peso,objetivo, sexo, tmb) {
     throw erro;
   }
 }
+
+
