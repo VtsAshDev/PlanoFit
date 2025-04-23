@@ -1,5 +1,4 @@
 export function getTmb(sexo, idade, altura, kg) {
-  console.log({ sexo, idade, altura, kg });
   let tmb = Math.round(
     sexo === "mulher"
       ? 655 + 9.6 * kg + 1.8 * altura - 4.7 * idade
