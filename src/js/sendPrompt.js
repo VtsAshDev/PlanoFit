@@ -9,7 +9,7 @@ export async function sendPrompt(idade, altura,peso,objetivo, sexo, tmb) {
   };
 
   try {
-    const envio = await fetch("https://planofitapi.onrender.com/", {
+    const envio = await fetch("https://planofitapi.onrender.com/gerar-plano", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

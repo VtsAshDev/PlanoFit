@@ -22,7 +22,7 @@ export class PlanoAlimentar {
     const doc = new jsPDF();
 
     const formattedContent = this.formatarPlano();
-
+    console.log(formattedContent);
     const tempElement = document.createElement('div');
     tempElement.innerHTML = formattedContent;
 

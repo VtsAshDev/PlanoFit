@@ -35,7 +35,7 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
       dados.sexo,
       tmb
     );
-
+    
     const plano = new PlanoAlimentar(response.resposta);
     plano.gerarPDF();
 
