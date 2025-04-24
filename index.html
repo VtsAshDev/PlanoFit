@@ -1,17 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Crie gratuitamente seu plano alimentar personalizado com o PlanoFit. Planos adaptados para emagrecimento, ganho de massa ou saúde. Receba seu plano em PDF instantaneamente." />
+    <meta name="keywords" content="plano alimentar personalizado, plano alimentar online, plano alimentar grátis, plano alimentar pdf, dieta personalizada, alimentação saudável, emagrecimento, ganho de massa" />
+    <meta name="author" content="PlanoFit" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Estrutura de dados Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PlanoFit",
+      "description": "Gerador de plano alimentar personalizado gratuito",
+      "url": "https://planofit.com.br",
+      "applicationCategory": "HealthApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "featureList": [
+        "Plano alimentar personalizado em PDF",
+        "Cálculo de calorias personalizado",
+        "Adaptado aos seus objetivos",
+        "Geração instantânea"
+      ]
+    }
+    </script>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://planofit.com.br/" />
+    <meta property="og:title" content="PlanoFit - Crie Seu Plano Alimentar Personalizado Grátis" />
+    <meta property="og:description" content="Gere gratuitamente seu plano alimentar personalizado. Receba em PDF um plano completo adaptado ao seu objetivo: emagrecimento, ganho de massa ou saúde." />
+    <meta property="og:image" content="https://planofit.com.br/src/imgs/PlanoFit Logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://planofit.com.br/" />
+    <meta property="twitter:title" content="PlanoFit - Crie Seu Plano Alimentar Personalizado Grátis" />
+    <meta property="twitter:description" content="Gere gratuitamente seu plano alimentar personalizado. Receba em PDF um plano completo adaptado ao seu objetivo: emagrecimento, ganho de massa ou saúde." />
+    <meta property="twitter:image" content="https://planofit.com.br/src/imgs/PlanoFit Logo.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="src/imgs/PlanoFit Logo.png" />
+    <link rel="apple-touch-icon" href="src/imgs/PlanoFit Logo.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://planofit.com.br/" />
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PlanoFit - Seu Plano de Nutrição Personalizado</title>
+    
+    <title>PlanoFit - Crie Seu Plano Alimentar Personalizado Grátis | PDF Instantâneo</title>
   </head>
   <body class="min-h-screen bg-gradient-to-br from-nutri-black via-gray-900 to-nutri-black">
-    <div class="min-h-screen flex items-center p-4 md:p-6">
+    <main class="min-h-screen flex items-center p-4 md:p-6">
       <div class="container mx-auto">
         <div
           class="p-5 md:p-8 flex flex-col lg:flex-row w-full bg-white/95 backdrop-blur-sm rounded-2xl mx-auto shadow-nutri overflow-hidden animate-fade-in"
@@ -22,12 +74,13 @@
             <div class="text-center animate-slide-in">
               <h1 class="text-nutri-black text-4xl md:text-5xl lg:text-6xl font-bold mb-4 hover:scale-105 transition-transform duration-300 flex items-center justify-center">
                 PlanoFit
-                <img src="src/imgs/PlanoFit Logo.png" class="px-5 h-16 md:h-20 lg:h-24 object-contain animate-float" alt="PlanoFit Logo" />
+                <img src="src/imgs/PlanoFit Logo.png" class="px-5 h-16 md:h-20 lg:h-24 object-contain animate-float" alt="PlanoFit - Gerador de Plano Alimentar Gratuito" />
               </h1>
-              <p class="text-nutri-gray text-lg md:text-xl animate-pulse-slow">Transforme sua saúde com um plano personalizado</p>
+              <h2 class="text-nutri-gray text-lg md:text-xl animate-pulse-slow">Crie seu plano alimentar personalizado gratuitamente</h2>
+              <p class="text-nutri-gray text-base mt-2">Receba instantaneamente seu plano em PDF</p>
             </div>
             
-            <img src="src/imgs/planofit.svg" alt="Fitness Illustration" class="hidden lg:block w-4/5 animate-float" style="animation-delay: 0.2s" />
+            <img src="src/imgs/planofit.svg" alt="Ilustração PlanoFit - Plano Alimentar" class="hidden lg:block w-4/5 animate-float" style="animation-delay: 0.2s" />
 
             <div class="lg:hidden flex space-x-4">
               <div class="bg-nutri-yellow/10 p-4 rounded-full animate-float" style="animation-delay: 0s">
@@ -173,9 +226,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
-    <footer class="fixed bottom-0 w-full py-4 bg-nutri-black/80 backdrop-blur-sm">
+    <footer class="sm:fixed bottom-0 w-full py-4 bg-nutri-black/80 backdrop-blur-sm">
       <div class="container mx-auto px-4">
         <div class="flex justify-center items-center space-x-2">
           <span class="text-gray-400 text-sm">Desenvolvido por</span>
