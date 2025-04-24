@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes cooking {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(8deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes textFade {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+.animate-cooking {
+  animation: cooking 1.2s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+#loadingMessage {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 0 1.5rem;
+}
+
+#loadingMessage span {
+  animation: textFade 2s ease-in-out infinite;
+  min-width: 200px;
+  text-align: left;
+  margin-right: auto;
+}
+
+#cookingIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-left: 12px;
+}
+
+#send {
+  min-height: 56px;
+  position: relative;
+}
+
+#send .relative {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
