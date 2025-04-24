@@ -3,6 +3,7 @@ import { Form } from './src/js/Form.js'
 import { getTmb } from './src/js/getTmb.js'
 import { sendPrompt } from './src/js/sendPrompt.js'
 import { PlanoAlimentar } from './src/js/PlanoAlimentar.js'
+import { validateFormData } from './src/js/validateFormData.js'
 
 const Toast = Swal.mixin({
   toast: true,
@@ -24,15 +25,13 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const dados = form.getAll();
+  if (!validateFormData(form)) return;
+
   const tmb = getTmb(dados.sexo, dados.idade, dados.altura, dados.peso);
 
   try {
     const response = await sendPrompt(
-      dados.idade,
-      dados.altura,
-      dados.peso,
-      dados.objetivo,
-      dados.sexo,
+      form,
       tmb
     );
     const plano = new PlanoAlimentar(response.data);

@@ -1,13 +1,13 @@
-export async function sendPrompt(idade, altura,peso,objetivo, sexo, tmb) {
+export async function sendPrompt(Form, tmb) {
   const dados = {
-    idade,
-    altura,
-    peso,
+    idade : Form.getIdade(),
+    altura : Form.getAltura(),
+    peso : Form.getKg(),
     tmb,
-    sexo,
-    objetivo,
+    sexo : Form.getSexo(),
+    objetivo : Form.getObjetivo(),
   };
-
+  
   try {
     const envio = await fetch("https://planofitapi.onrender.com/gerar-plano", {
       method: "POST",
