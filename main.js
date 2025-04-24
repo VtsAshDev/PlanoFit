@@ -30,6 +30,10 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
   const cookingIcon = document.querySelector("#cookingIcon");
   const loadingMessage = document.querySelector("#loadingMessage");
 
+  // Desabilita o botão
+  button.disabled = true;
+  button.classList.add('opacity-70', 'cursor-not-allowed');
+
   const messages = [
     "Pedindo ajuda aos Universitários...",
     "Consultando o manual secreto das calorias perdidas...",
@@ -52,13 +56,13 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
   {
     messageIndex++;
 
-  if (messageIndex >= messages.length) {
-    clearInterval(messageInterval);
-    return;
-  }
+    if (messageIndex >= messages.length) {
+      clearInterval(messageInterval);
+      return;
+    }
 
-  messageSpan.textContent = messages[messageIndex];
-}, 3000);
+    messageSpan.textContent = messages[messageIndex];
+  }, 3000);
 
   buttonText.style.display = "none";
   buttonIcon.style.display = "none";
@@ -72,6 +76,9 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
     buttonIcon.style.display = "block";
     cookingIcon.classList.add("hidden");
     loadingMessage.style.display = "none";
+    // Reabilita o botão em caso de erro de validação
+    button.disabled = false;
+    button.classList.remove('opacity-70', 'cursor-not-allowed');
     return;
   }
 
@@ -103,6 +110,8 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
     buttonIcon.style.display = "block";
     cookingIcon.classList.add("hidden");
     loadingMessage.style.display = "none";
+    button.disabled = false;
+    button.classList.remove('opacity-70', 'cursor-not-allowed');
   }
 });
 
