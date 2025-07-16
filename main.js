@@ -2,7 +2,7 @@ import Swal from 'sweetalert2'
 import { Form } from './src/js/Form.js'
 import { getTmb } from './src/js/getTmb.js'
 import { sendPrompt } from './src/js/sendPrompt.js'
-import { PlanoAlimentar } from './src/js/PlanoAlimentar.js'
+import { PlanoAlimentar } from './src/js/core/PlanoAlimentar.js'
 import { validateFormData } from './src/js/validateFormData.js'
 
 const Toast = Swal.mixin({
@@ -30,7 +30,6 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
   const cookingIcon = document.querySelector("#cookingIcon");
   const loadingMessage = document.querySelector("#loadingMessage");
 
-  // Desabilita o botão
   button.disabled = true;
   button.classList.add('opacity-70', 'cursor-not-allowed');
 
@@ -76,7 +75,6 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
     buttonIcon.style.display = "block";
     cookingIcon.classList.add("hidden");
     loadingMessage.style.display = "none";
-    // Reabilita o botão em caso de erro de validação
     button.disabled = false;
     button.classList.remove('opacity-70', 'cursor-not-allowed');
     return;
@@ -89,7 +87,11 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
       form,
       tmb
     );
-    const plano = new PlanoAlimentar(response.data);
+
+    console.log("Resposta recebida:", response.data);
+
+    const geradorPDF = new JsPDFGenerator();
+    const plano = new PlanoAlimentar(response.data, geradorPDF);
     plano.gerarPDF();
 
     Toast.fire({
