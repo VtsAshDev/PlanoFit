@@ -4,6 +4,7 @@ import { getTmb } from './src/js/getTmb.js'
 import { sendPrompt } from './src/js/sendPrompt.js'
 import { PlanoAlimentar } from './src/js/core/PlanoAlimentar.js'
 import { validateFormData } from './src/js/validateFormData.js'
+import { JsPDFGenerator } from './src/js/pdf/JsPDFGenerator.js'
 
 const Toast = Swal.mixin({
   toast: true,
@@ -88,7 +89,6 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
       tmb
     );
 
-    console.log("Resposta recebida:", response.data);
 
     const geradorPDF = new JsPDFGenerator();
     const plano = new PlanoAlimentar(response.data, geradorPDF);
